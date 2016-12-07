@@ -1,0 +1,72 @@
+parenthesis are proper subsitutes for square brackets.
+fully compliant clients must replace parens and reformat 
+
+( ) proper task
+( )
+( ) 
+( )  
+( )	
+( )  extra ws task
+( )     extra ws task
+( )	extra ws (tab) task
+( )	 extra ws (tab,space) task
+( ) 	extra ws (space,tab) task
+(  )  extra ws task
+(   )  extra ws task
+(         )  extra ws task
+(	)  extra ws (tab) task
+( 	)  extra ws (space,tab) task
+(	 )  extra ws (tab,space) task
+() missing ws
+()missing ws
+
+Completed tasks
+
+(x) proper task
+(x)
+(x) 
+(x)  
+(x)	
+(x)  extra ws completed task
+(x)     extra ws completed task
+(x)	extra ws (tab) completed task
+(x)	 extra ws (tab,space) completed task
+(x) 	extra ws (space,tab) completed task
+(x) missing ws
+(x)missing ws
+
+(x  )  extra ws completed completed task
+( x )  extra ws completed task
+(  x)  extra ws completed task
+(x         )  extra ws completed task
+(    x     )  extra ws completed task
+(         x)  extra ws completed task
+(x         )  extra ws completed task
+(    x     )  extra ws completed task
+(         x)  extra ws completed task
+(x	)  extra ws (tab) completed task
+(x 	)  extra ws (space,tab) completed task
+(x	 )  extra ws (tab,space) completed task
+(x   )  extra ws completed task
+(x         )  extra ws completed task
+(x	)  extra ws (tab) completed task
+(x 	)  extra ws (space,tab) completed task
+(x	 )  extra ws (tab,space) completed task
+
+
+Non-tasks
+
+a() just a note
+ a() just a note
+a( ) just a note
+ a( ) just a note
+a(	) just a note
+ a(	) just a note
+a(x) just a note
+ a(x) just a note
+a(x) just a note
+ a(x ) just a note
+a(x	) just a note
+ a(x	) just a note
+
+
