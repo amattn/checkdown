@@ -52,7 +52,7 @@ Tasks are at the center of checkdown and are denoted by a line of text starting 
 
 ### Inline Tags
 
-Inline Tags are short span of text preceded by a `-` or `@`.  Dash (`-`) inline tags can be any arbitrary text.  Atmark (`@`) inline tags are dedicated for people or dates.
+Inline Tags are short span of text preceded by one of two special characters.  Dash (`-`) inline tags can be any arbitrary text.  Atmark (`@`) inline tags are dedicated for people or dates.
 
 Here are some examples:
 
@@ -71,25 +71,32 @@ The supported date format for checkdown is one of
 
 ### Group Tags
 
-A group tag is essentially a hashtag on its own line.  Any following tasks are automattically tagged with the current set of group tags.  You can actually use between 1-6 hashes to denote nested tags.  
+A group tag is essentially a hashtag `#` or atmark `@` on its own line.  Any following tasks are automattically tagged with the current set of group tags.  You can actually use between 1-6 hashes to denote nested tags.  
 
 The following checkdown text:
 
     # Work
     ## Project A
     [ ] task 1
+    
     ## Project B
+    @amattn
     [ ] task 2
+    @jim
     [ ] task 3
-    # Home
     [ ] task 4
+    
+    # Home
+    
+    [ ] task 5
 
 is symantically equivalent to the following:
 
     [ ] task 1 -Work -"Project A"
-    [ ] task 2 -Work -"Project B"
-    [ ] task 3 -Work -"Project B"
-    [ ] task 4 -Home
+    [ ] task 2 -Work -"Project B" @amattn
+    [ ] task 3 -Work -"Project B" @jim
+    [ ] task 4 -Work -"Project B" @jim
+    [ ] task 5 -Home
 
 If you need to reset the current set of group tags, you have two optoins.  An empty hashtag will reset at the appropriate nested level.  Or you can use a markdown-style divider (`---`) to do a full reset.
 
@@ -112,7 +119,17 @@ In light of these common characteristics, fully-compliant clients (dedicated app
 
 ## Misc
 
-This project is similar in spirit to both the [todo.txt](http://todotxt.com) and the [taskpaper](https://www.taskpaper.com) formats.
+This project is similar in spirit to the following projects (listed in order of my discovery of them):
+
+- [taskpaper][]
+- [todo.txt][]
+- [Github-Flavored Markdown][GFM]'s `- [ ]` checkbox notation.
+- [.todo][]
+
+[todo.txt]: http://todotxt.com
+[taskpaper]: https://www.taskpaper.com
+[GFM]: https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown "Github-Flavored Markdown"
+[.todo]: https://github.com/matthewpalmer/.todo
 
 ## Versioning and project state
 
