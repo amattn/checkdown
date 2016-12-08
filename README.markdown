@@ -8,28 +8,35 @@ Checkdown files usually have the `.checkdown` suffix appended to the filename.
 ### example.checkdown
 
     # Home
-        [ ] Get the emission test done. -car @2016-12-06
-        [x] Pay Rent -bills @2016-12-01
-        [ ] Call Gobby about the New Years party.
+
+    [ ] Get the emission test done. -car @2016-12-06
+    [x] Pay Rent -bills @2016-12-01
+    [ ] Call Gobby about the New Years party.
+
     # Work
-        [x] Schedule meeting with Kermy
-        [ ] Refactor the frobber widget
+    
+    [x] Schedule meeting with Kermy
+    [ ] Refactor the frobber widget
+
     ## v7.3.3
-        [ ] Release version 7.3.3 @2016-11-20 @13:00
-            [ ] Update Documentation
-                [x] New API Endpoints
-                [ ] README
-            [ ] Regression tests
+
+    [ ] Release version 7.3.3 @2016-11-20 @13:00
+        [ ] Update Documentation
+            [x] New API Endpoints @peter
+            [ ] README @amattn
+        [ ] Regression tests @john
+
     # School
-        [ ] Apply to grad school due 2016-12
-            [x] Look up standardized testing dates
-            [ ] Narrow list to top 3 schools
-            [ ] Reqeust applicaiton packets for top 3
+
+    [ ] Apply to grad school @2016-12
+        [x] Look up standardized testing dates
+        [ ] Narrow list to top 3 schools
+        [ ] Reqeust applicaiton packets for top 3
 
 
 ## Philosophy
 
-The high level vision of checkdown is a format that is easy to use humans and to a lesser extent for tools.
+The high level vision of checkdown is a text-based format that is primarily designed to be used by humans on both mobile and desktop devices.
 
 The philisophy of the format is that checkdown formatted text is easy to read in a pure text editor.
 It is easy to both create and edit checkdown formatted text in both desktop and mobile text editors.
@@ -37,11 +44,34 @@ Lastly, there the format should be tool friendly. A fully compliant checkdown ed
 
 ## Components
 
-A checkdown component consists of tasks, tags and notes.  
+A checkdown component consists of **tasks**, two types of **tags**, and **notes**.  
 
-Tasks are the star of the show and are denoted by square brackets `[ ]`.  Tasks can be nested with four spaces preceding the square brackets.  
+### Tasks
 
-There are two type of tags, group tags and inline tags.  A group tag is essentially a hashtag on its own line.  Any following tasks are automattically tagged with the current set of group tags.  You can actually use between 1-6 hashes to denote nested tags.  Inline Tags are short span of text preceded by a `-` or `@`.  Dash (`-`) inline tags can be any arbitrary text.  Atmark (`@`) inline tags are dedicated for people or dates.
+Tasks are at the center of checkdown and are denoted by a line of text starting with square brackets enclosing a space or an x (`[ ]` or `[x]`).  Tasks can be nested with four spaces preceding the square brackets.  
+
+### Inline Tags
+
+Inline Tags are short span of text preceded by a `-` or `@`.  Dash (`-`) inline tags can be any arbitrary text.  Atmark (`@`) inline tags are dedicated for people or dates.
+
+Here are some examples:
+
+    [ ] Fix Typos @amattn @2016-12-07
+    [ ] Lower the contrast on header -P1 @frank
+    [ ] Call Dentist -medium -soon
+    [ ] Pre-order tickets -"date night"
+
+The supported date format for checkdown is one of 
+
+- YYYY-MM-DD HH:MM:SS where later elements are optional.  
+    - 1980 is valid.
+    - 1999:12:31 12:01 is valid.
+    - 12-11 isn't valid.
+- [ISO8601](https://en.wikipedia.org/wiki/ISO_8601)
+
+### Group Tags
+
+A group tag is essentially a hashtag on its own line.  Any following tasks are automattically tagged with the current set of group tags.  You can actually use between 1-6 hashes to denote nested tags.  
 
 The following checkdown text:
 
@@ -63,13 +93,16 @@ is symantically equivalent to the following:
 
 If you need to reset the current set of group tags, you have two optoins.  An empty hashtag will reset at the appropriate nested level.  Or you can use a markdown-style divider (`---`) to do a full reset.
 
+### Notes
+
 Notes are just lines of text that start with neither square brackets (`[]`), dividers (`---`), or hashtags (`#`).
+
 
 ## Fully compliant clients
 
 Checkdown is designed to be mobile friendly.  On many mobile devices, certain characters are easier to get to or require fewer taps.  These typically include dot (`.`), dash (`-`), exclamation mark (`!`), and question mark (`?`).  Furthermore, parenthesis (`()`) are typically easier to type than square brackets (`[]`).  
 
-Checkdown fully-compliant clients (dedicated apps, IDE plugins, etc.) are required to have some smart autoformatting built in.  Since checkdown is designed to support mobile clients, some example of the autoformatting include:
+In light of these common characteristics, fully-compliant clients (dedicated apps, IDE plugins, etc.) are required to have some smart autoformatting built in.  Some example of the autoformatting include:
 
 - converting [] to [ ].
 - converting 1, 2 or 3 spaces, or a single tab to 4 spaces.
